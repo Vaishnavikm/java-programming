@@ -6,8 +6,11 @@ public class Teams {
     public String emp_list;
     public String Department;
     public String team_leader;
-    void get_info(){
-        //get Team information
+    public void get_info(){
+        StringBuffer sb = new StringBuffer ("Team01");
+        sb.insert(6, " - Currently working on 'Plan your Day!'");
+        System.out.println("Team and Project details: ");
+        System.out.println(sb);
     }
 
     void updateTeam() {
