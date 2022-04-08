@@ -7,7 +7,14 @@ public class Projects {
     public String Start_date;
     public String End_date;
     public String Description;
-    public int Budget;
+    public double Budget;
+    public double Emp_Sal;
+    public double multimedia;
+    public double maintainance;
+    public double marketing;
+    public double resources;
+    public double misc;
+
     public Projects (String Client_det, String Start_date, String End_date, String Description, int Budget)
     {
     
@@ -19,24 +26,40 @@ public class Projects {
     }
 
     public Projects (int ID, String Name) {
-        this("ABC Solutions", "21/01/2022", "05/05/2022", "Personal planner web application", 30000);
+        this("ABC Solutions", "21/01/2022", "05/05/2022", "Personal planner web application", 200000);
         this.ID=ID;
         this.Name=Name;
     }
 
-    void get_info(){
+    public void get_info(){
         //get Project information
     }
    
-    void updateProject() {
+    public void updateProject() {
         //Update Project details
     }
 
-    void calcBudget() {
-        //Calculate Budget 
+    public void BudgetAllocation(double Budget){
+        Emp_Sal = 0.55*Budget;
+        multimedia = 0.05*Budget;
+        maintainance = 0.15*Budget;
+        resources = 0.20*Budget;
+        misc = 0.05*Budget;
     }
 
-    void BudgetAllocation(){
-        //Allocation of Budget
+    public void Estimate(double Budget, double Emp_Sal, double multimedia, double maintainance, double resources, double misc ) {
+        System.out.println("\n*********Budget Allocation***********\n");
+        System.out.println("Total Budget: "+ Budget);
+        System.out.println("Employee Salaries: " + Emp_Sal);
+        System.out.println("Multimedia: " + multimedia);
+        System.out.println("Maintainence: "+ maintainance);
+        System.out.println("Resources: "+ resources);
+        System.out.println("misc: "+ misc);
     }
+
+    public void display() {
+       
+        
+    }
+    
 }

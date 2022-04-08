@@ -9,7 +9,7 @@ public class Teams {
     public void get_info(){
         StringBuffer sb = new StringBuffer ("Team01");
         sb.insert(6, " - Currently working on 'Plan your Day!'");
-        System.out.println("Team and Project details: ");
+        System.out.println("\n*******Team and Employee details:**************\n");
         System.out.println(sb);
     }
 

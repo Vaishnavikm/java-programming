@@ -1,13 +1,13 @@
 package PMS;
 
 public class Clients {
-    int ID;
-    String Client_password;
-    String Name;
-    String Phone;
-    String Address;
-    String Email;
-    String Project;
+    public int ID;
+    public String Client_password;
+    public String Name;
+    public String Phone;
+    public String Address;
+    public String Email;
+    public String Project;
 
     public static void updateClient() {
 

@@ -8,7 +8,7 @@ public class Meetings {
     String Description;
     String MOM;
     String Recorder_name;
-    void get_info(){
+    public void get_info(){
         //Get Meetings information
     }
     public static void updateMeeting() {
@@ -22,10 +22,10 @@ public class Meetings {
     public static void calcTime() {
         //Calculate Meeting Time
     }
-    void  Scheduling(){
+    public void  Scheduling(){
         //Schedule Meetings
     }
-    void no_of_meet(){
+    public void no_of_meet(){
         //No of meetings for a project
     }
 }

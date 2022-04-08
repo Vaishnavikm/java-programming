@@ -7,6 +7,7 @@ public class Roles {
     void get_info() {
         //get Roles information
     }
+    
     void updateRole() {
         //update Emp roles
     }
@@ -14,7 +15,15 @@ public class Roles {
     void searchRole() {
         //Search for role
     }
-    void RoleAssignment() {
-        //Assigning roles to employees
+    public void RoleAssignment() {
+        if (ID == 1) {
+            Rolename = "Team Head";
+        }
+        else  if (ID == 2) {
+            Rolename = "Developer";
+        }
+        else if (ID == 3) {
+            Rolename = "Intern";
+        }
     }
 }
