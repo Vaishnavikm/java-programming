@@ -1,25 +1,27 @@
 package PMS;
 public class Meetings {
-    int ID;
-    String start_date;
-    String end_date;
-    String team_ID;
-    String Project_ID;
-    String Description;
-    String MOM;
-    String Recorder_name;
-    public void get_info(){
-        //Get Meetings information
+    public static int ID;
+    public static String start_date;
+    public String end_date;
+    public String team_ID;
+    public String Project_ID;
+    public String Description;
+    public String MOM;
+    public String Recorder_name;
+
+    public static void allocate(){
+        ID = 001;
     }
-    public static void updateMeeting() {
+
+    public void updateMeeting(int ID) {
         //Update Meeting details
     }
 
-    public static void searchMeeting() {
+    public void searchMeeting() {
         //Search Meetings
     }
 
-    public static void calcTime() {
+    public void calcTime() {
         //Calculate Meeting Time
     }
     public void  Scheduling(){
