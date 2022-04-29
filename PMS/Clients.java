@@ -17,12 +17,16 @@ public class Clients {
 
     }
 
-    public void allocate() {
+    public static void allocate() {
         int ID = 001;
         String Client_password = "ABC@123";
+        System.out.println("\n************Project info*******************\n");
+        System.out.println("Project_ID: "+ID);
+        System.out.println("Password: "+Client_password);
     }
 
-    public static void client_det(int ID, String Client_password) {
-            System.out.println();
+    public void client_det(int ID, String Client_password) {
+            System.out.println("Project_ID: "+ID);
+            System.out.println("Password: "+Client_password);
     }
 }
