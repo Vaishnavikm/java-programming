@@ -6,7 +6,7 @@ public class cmdline {
       try {
         if (args[0].equals("--register")) {
           Scanner sc = new Scanner(System.in);
-          System.out.print("Enter ProjectID ");
+          System.out.print("Enter ProjectID: ");
           String ProjectID = sc.nextLine();
           System.out.print("Enter ProjectName: ");
           String name = sc.nextLine();
