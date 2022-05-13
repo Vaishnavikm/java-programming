@@ -1,10 +1,12 @@
 import java.io.*;
 import java.util.*;
+
 abstract class create_file {
-    //constructor
+    // constructor
     public create_file() {
         System.out.println("Add Meeting Details");
     }
+
     public void create_file(String fileName) {
         try {
             File file = new File(fileName);
@@ -19,15 +21,16 @@ abstract class create_file {
     }
 }
 
-//class to do read, write and delete operations
+// class to do read, write and delete operations
 
 class read_delete extends create_file {
-    //constructor
+    // constructor
+    Scanner scan = new Scanner(System.in);
+
     public read_delete() {
         super();
     }
 
-    
     public void read_file(String fileName) {
         try {
             File file = new File(fileName);
@@ -47,16 +50,24 @@ class read_delete extends create_file {
 
     public void WriteTofile(String fileName) {
         try {
-            FileWriter myWriter = new FileWriter(fileName);
-            myWriter.write("Files in Java might be tricky, but it is fun enough!");
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-          } catch (IOException e) {
+            FileWriter fw = new FileWriter(fileName);
+            String input;
+            while(true){
+                input = scan.nextLine();
+                if("DONE".equalsIgnoreCase(input.trim())){
+                    break;
+                }
+                fw.write(input);
+                //scan.nextLine();
+            }
+            //scan.close();
+            fw.close();
+        } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-          }
+        }
+        this.scan.nextLine();
     }
-    
 
     public void delete_file(String fileName) {
         try {
@@ -71,13 +82,13 @@ class read_delete extends create_file {
             e.printStackTrace();
         }
     }
-    
+
 }
 
-//class to do display operations
+// class to do display operations
 
 class display extends read_delete {
-    //final method to display the file
+    // final method to display the file
     public final void display_file(String fileName) {
         try {
             File file = new File(fileName);
@@ -94,13 +105,14 @@ class display extends read_delete {
             e.printStackTrace();
         }
     }
-    
+
 }
+
 public class labseven extends display {
     public static void main(String[] args) {
         String fileName = args[0];
         labseven obj = new labseven();
-        //menu driven
+        // menu driven
         int choice;
         Scanner sc = new Scanner(System.in);
         do {
@@ -137,5 +149,5 @@ public class labseven extends display {
         } while (choice != 6);
 
     }
-    
+
 }
