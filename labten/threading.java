@@ -17,7 +17,7 @@ public class threading {
             arr[i] = br.readLine();
         }
         for (int i = 0; i < n; i++) {
-            PMThread canthread1 = new Thread(arr[i]);
+            PMThread canthread1 = new PMThread(arr[i]);
             canthread1.start();
         }
     }

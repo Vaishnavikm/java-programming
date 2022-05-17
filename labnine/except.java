@@ -1,104 +1,94 @@
-import java.io.*;
-//User defined Exception for checking the  minimum experience
-class InvalidExpException extends Exception{
-    InvalidExpException(String s)
-	{
-        super(s);
+import java.util.Scanner;
+
+class pro {
+    public int ID;
+    public String Name;
+    public String Client_det;
+    public String Start_date;
+    public String End_date;
+    public String Description;
+    public double Budget;
+    public double Emp_Sal;
+    public double multimedia;
+    public double maintainance;
+    public double marketing;
+    public double resources;
+    public double misc;
+
+    public void BudgetAllocation(double Budget) {
+        Emp_Sal = 0.55 * Budget;
+        multimedia = 0.05 * Budget;
+        maintainance = 0.15 * Budget;
+        resources = 0.20 * Budget;
+        misc = 0.05 * Budget;
+    }
+
+    public void Estimate(double Budget, double Emp_Sal, double multimedia, double maintainance, double resources,
+            double misc) {
+        System.out.println("\n*********Budget Allocation***********\n");
+        System.out.println("Total Budget: " + Budget);
+        System.out.println("Employee Salaries: " + Emp_Sal);
+        System.out.println("Multimedia: " + multimedia);
+        System.out.println("Maintainence: " + maintainance);
+        System.out.println("Resources: " + resources);
+        System.out.println("misc: " + misc);
+    }
+
+    public void display() {
+
+    }
+
+}
+
+// class representing custom exception
+class InvalidSalException extends Exception {
+    public InvalidSalException(String str) {
+        // calling the constructor of parent Exception
+        super(str);
     }
 }
-public class Except
-{       //This method will be called to check if the Invalid experience exception class is being called or not 
-        static void validate(int experience)throws InvalidExpException{
-            if(experience<1)
-            {
-                throw new InvalidExpException("Your experience is not valid to apply");
-            }
-            else{
-                System.out.println("You can proceed!");
-            }
-        }
-    public static void main(String args[])throws IOException
-    {
-        
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        try{
-            String name= null;
-            char r;
-            int experience,first,agg,second,n,len;
-            int a[] = new int[5];
-            System.out.println("Name: Aleena Mary Varghese \n");
-            System.out.println("Hello Candidate enter your basic details-->");
-            //System.out.println("Do you want to enter your name(y/n)");
-            //r = (char)br.read();
-            //if(r== 'n')
-            //{
-            //System.out.println("The length of your name is: " +name.length() );
-            //}
-            System.out.println("Enter your name:");
-            name = br.readLine();
-            //Here we'll be checking the Null pointer exception to see if the name is null or not
-            if (name.length() == 0)
-            {
-                throw new NullPointerException("Please enter your name!"); 
-            }
-            else
-            {
-                System.out.println("nice name!");
-            }
-            //System.out.println("The length of your name is: " +name.length() );
-            System.out.println("Enter your experience in this club:");
-            experience = Integer.parseInt(br.readLine());
-            // The validate method to check experience exception
-            validate(experience);
-			
-            
-            System.out.println("Enter your credits obtained at the first year:");
-            //We can check number pointer exception here
-            first = Integer.parseInt(br.readLine());
-            System.out.println("Enter the credits obtained at the second year:");
-            second = Integer.parseInt(br.readLine());
-			System.out.println("How many  music credit scores of soundnest groups do you want to enter:");
-            len = Integer.parseInt(br.readLine());
-            
-            for(int i=0;i<len;i++)
-            {
-                System.out.println("Enter scores of " +(i+1)+ " group: ");
-                int rd = Integer.parseInt(br.readLine());
-                a[i] = rd;
-            }
-            System.out.println("Enter from how much you wanna divide:");
-            n = Integer.parseInt(br.readLine());
-            // Here I'll be checking the Arithemtic error dividing it by zero
-            agg = first + second / n;
-            System.out.println("The aggregate value is: " +agg);
 
-        
+// class that uses custom exception InvalidAgeException
+class CustomException {
+
+    // method to check the age
+    static void validate(int Emp_sal) throws InvalidSalException {
+        if (Emp_sal < 5000) {
+
+            // throw an object of user defined exception
+            throw new InvalidSalException("Salary is less than the minimum wage.");
+        } else {
+            System.out.println("Salary entered successfully.");
         }
-        //catch(Exception e){
-            //System.out.println("This is the exception that occured: "+e);
-        //}
-        catch(ArithmeticException e){
+    }
+
+}
+
+public class except {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+            System.out.println("Enter Name: ");
+            String Name = sc.nextLine();
+        try{    
+            if (Name.length() == 0) {
+                throw new NullPointerException("Name cannot be null");
+            }
+        } catch (NullPointerException e){
             System.out.println(e);
-            System.out.println("You can't divide a number by 0");
+        }
+            System.out.println("Enter ID: ");
+            int ID = sc.nextInt();
+            System.out.println("Enter Salary: ");
+            int Emp_Sal = sc.nextInt();
+        try {
             
-        }
-        catch(NullPointerException e){
-            System.out.println(e);
-            System.out.println("You can't keep the name NULL! Enter your name");
-        }
-        catch(NumberFormatException e){
-            System.out.println(e);
-            System.out.println("You can enter only Integer values! String values not allowed");
-        }
-        catch(ArrayIndexOutOfBoundsException e){
-            System.out.println(e);
-            System.out.println("You can enter scores of maximum 3 groups");
-        }
-        catch(InvalidExpException e){
-            System.out.println(e);
-        }
-        finally{
-            System.out.println("Have a nice day!");
+            CustomException.validate(Emp_Sal);
+        } catch (InvalidSalException ex) {
+            System.out.println("Caught the exception");
+        
+        
+            // printing the message from InvalidAgeException object
+            System.out.println("Exception occured: " + ex);
         }
     }
 }

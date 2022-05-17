@@ -16,7 +16,7 @@ public class cmdline {
           String deadline = sc.nextLine();
           System.out.print("Enter Estimated Budget: ");
           int Budget = sc.nextInt();
-          System.out.println("Registration Successful!!");
+          System.out.println("Project Details Entered successfully!!");
         }
       } catch (Exception e) {
         //e.printStackTrace();
